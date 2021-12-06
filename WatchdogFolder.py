@@ -63,7 +63,7 @@ class ControladorEventos(FileSystemEventHandler):
         # Si se crea un nuevo elemento, envia mail de notificación 
         if event.event_type == EVENT_TYPE_CREATED:   
             SendMail.send_email(Path(event.src_path).name)
-            logging.info("Mail enviado a las: " + datetime.datetime.now().strftime("%d/%m/%Y - %H:%M:%S"))
+            logging.info("Mail enviado a las: " + datetime.now().strftime("%d/%m/%Y - %H:%M:%S"))
             
         # Agregar la información del evento a la cola, para que sea
         # procesada por loop_observer() en el hilo principal.
